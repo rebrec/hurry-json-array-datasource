@@ -132,6 +132,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _src_core_Plugin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../src/core/Plugin */ "./src/core/Plugin.js");
 /* harmony import */ var _datasource_definition__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./datasource.definition */ "./plugins-src/json-array-datasource/datasource.definition.js");
 /* harmony import */ var _datasource_definition__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_datasource_definition__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./menu */ "./plugins-src/json-array-datasource/menu.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -149,6 +150,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var JsonArrayDatasourcePlugin =
 /*#__PURE__*/
 function (_Plugin) {
@@ -161,6 +163,7 @@ function (_Plugin) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(JsonArrayDatasourcePlugin).call(this, api, context));
     api.store.datasourceManager.addDatasourceDefinition(_datasource_definition__WEBPACK_IMPORTED_MODULE_1___default.a, context.pluginDir);
+    api.store.contextMenu.registerPlugin(_menu__WEBPACK_IMPORTED_MODULE_2__["default"], "json-array-datasource");
     return _this;
   }
 
@@ -168,6 +171,37 @@ function (_Plugin) {
 }(_src_core_Plugin__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 
+
+/***/ }),
+
+/***/ "./plugins-src/json-array-datasource/menu.js":
+/*!***************************************************!*\
+  !*** ./plugins-src/json-array-datasource/menu.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  "caption": "Json Array Custom Actions",
+  "type": "CONTAINER",
+  "children": [{
+    "description": "Do something",
+    "caption": "Ping",
+    "shell": "cmd",
+    "type": "COMMAND",
+    "platform": "win32",
+    "commands": ["start \"ping -t #{hostname}\" cmd /k echo hello"]
+  }, {
+    "description": "Launch Bash",
+    "caption": "Ping",
+    "shell": "bash",
+    "type": "COMMAND",
+    "platform": "linux",
+    "commands": ["xterm -e \"/bin/bash\""]
+  }]
+});
 
 /***/ }),
 
